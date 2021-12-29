@@ -1,46 +1,28 @@
 import random
+import re
+from math import sqrt
 
 import contractions
-import matplotlib.pyplot
-import numpy as np
-import pandas
-import pandas as pd
 import nltk
-from nltk.stem import SnowballStemmer
-from nltk.stem import WordNetLemmatizer
-import time
-
-from sklearn.metrics import f1_score
-
-nltk.download("stopwords")
-from textblob import TextBlob
-from nltk.corpus import stopwords
-import re
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.feature_extraction.text import CountVectorizer
-import matplotlib.pyplot as plt
-
-from mlxtend.preprocessing import TransactionEncoder
-# from mlxtend.frequent_patterns import apriori
+import pandas as pd
 from mlxtend.frequent_patterns import apriori
-from sklearn.feature_selection import VarianceThreshold
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.linear_model import LogisticRegression
+from mlxtend.preprocessing import TransactionEncoder
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
 from sklearn import preprocessing
-from sklearn import utils
-from sklearn.model_selection import train_test_split
-from wordcloud import WordCloud
-from xgboost import XGBClassifier
-from sklearn.svm import LinearSVC
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import mean_squared_error
-from math import sqrt
-from sklearn.naive_bayes import MultinomialNB
 from sklearn import tree
-from sklearn.cluster import KMeans, FeatureAgglomeration
-from sklearn.metrics import accuracy_score
+from sklearn.cluster import KMeans
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import cross_val_score
-
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.svm import LinearSVC
+from textblob import TextBlob
+from xgboost import XGBClassifier
 
 
 def removeUrl(text):
@@ -392,7 +374,7 @@ def removeTypo(text):
 
 
 def normaliseToxicityValue(dataset):
-    dataset["toxicity"] = preprocessing.binarize(X=dataset[["toxicity"]], threshold=0.0000000000001)
+    dataset["toxicity"] = preprocessing.binarize(X=dataset[["toxicity"]], threshold=0.000000001)
     return dataset
 
 
@@ -440,7 +422,6 @@ def doApriori(dataset):
 
     return aprioriDf
 
-from sklearn.feature_selection import SelectFromModel
 
 def selectFeature(dataset):
     del dataset['comment']
@@ -518,10 +499,10 @@ def calculateSqrt(xtrain,xtest,ytrain,ytest,model):
 
 
 def percDistibution(dataset):
-  
+
     tempDataset =dataset[(dataset['toxicity'] ==0)]
-    print(" Normal yorum sayısı ",len(tempDataset))
-    print(" Toksik yorum sayısı ",len(dataset)-len(tempDataset))
+    print(" Normal feed count : ",len(tempDataset))
+    print(" Toxic feed count :  ",len(dataset)-len(tempDataset))
 
 
 
@@ -578,7 +559,3 @@ def doKMeans(xValue,yValue):
     kmeans = KMeans(n_clusters=2,random_state=42).fit(xValue,yValue)
 
     return kmeans
-
-"""def doHierarchicalClustering(xValue,yValue):
-    hc = FeatureAgglomeration().fit(xValue,yValue)
-    return hc"""
