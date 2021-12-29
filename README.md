@@ -3,7 +3,7 @@ Basic NLP Sentiment analysis implementation for toxicity detection in tweets. Yo
 
 ## Preprocessing
 
-createDataset function samples 1000 toxic and positive comments by random. After that, it does word removal -> stopword cleaning -> stemming -> lemmatization.
+createDataset function samples 1000 toxic and positive comments by random. After that, it does  stopword removal -> stemming -> lemmatization.
 
 You can write the toxic and positive tweets number by percDistribution() function.
 
@@ -15,7 +15,7 @@ By TfIdf() function, you can call and see the TfIdf values directly from main an
 
 ## Post Processing
 
-The postprocessing function splits the dataset into train and test sets. We then experiment with following algorithms:
+The postprocessing function splits the dataset into train and test sets. We then experiment with the following algorithms:
 
 - Logistic regression
 - Knn
@@ -28,6 +28,7 @@ The postprocessing function splits the dataset into train and test sets. We then
 
 ## performance review
 
-At the end of the postProcessing() function the program does k cross-validation to test and prints the mean values :
+After postprocessing, we use k-cross-validation to test the performance.
+
 
 ![image](https://user-images.githubusercontent.com/18538179/147676640-a5b89639-5f77-4e79-a858-d60a89babff9.png)
