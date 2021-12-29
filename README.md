@@ -7,7 +7,7 @@ createDataset function samples 1000 toxic and positive comments by random. After
 
 You can write the toxic and positive tweets number by percDistribution() function.
 
-## Future Representation
+## Feature Representation
 
 By TfIdf() function, you can call and see the TfIdf values directly from main and with the doApriori() function, you can make apriori. The default in this project is first two value of ['tokenized'] column. Here's an example of TfIdf :
 
@@ -26,7 +26,7 @@ The postprocessing function splits the dataset into train and test sets. We then
 - DecisionTree
 - Kmean
 
-## performance review
+## Test Results
 
 After postprocessing, we use k-cross-validation to test the performance.
 
