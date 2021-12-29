@@ -5,7 +5,7 @@ Basic NLP Sentiment analysis implementation for toxicity detection in tweets. Yo
 
 createDataset function samples 1000 toxic and positive comments by random. After that, it does  stopword removal -> stemming -> lemmatization.
 
-You can print out the toxic and positive tweets number by percDistribution() function.
+percDistribution() function can be used to log details about the dataset split.
 
 ## Feature Representation
 
