@@ -1,4 +1,4 @@
-# SentimentAnalysis
+# Sentiment Analysis
 Basic NLP Sentiment analysis implementation for toxicity detection in tweets. You can use your dataset but the column names must be "[comment] and [toxicity]".
 
 ## Preprocessing
