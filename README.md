@@ -15,7 +15,7 @@ By TfIdf() function, you can call and see the TfIdf values directly from main an
 
 ## Post Processing
 
-Inside the postProcessing() function we are separating the dataset to test and train and we are using :
+The postprocessing function splits the dataset into train and test sets. We then experiment with following algorithms:
 
 - Logistic regression
 - Knn
