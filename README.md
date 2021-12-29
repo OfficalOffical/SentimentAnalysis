@@ -1,11 +1,11 @@
 # SentimentAnalysis
-Basic NLP Sentiment analysis implementation for toxicity in tweets. You can use your dataset but the column names must be "[comment] and [toxicity]".
+Basic NLP Sentiment analysis implementation for toxicity detection in tweets. You can use your dataset but the column names must be "[comment] and [toxicity]".
 
 ## Preprocessing
 
-First, we are taking 1000 toxic 1000 pure comments by random inside the createDataset() Function. After that, we are doing some word removal, stopword cleaning, stemming, and lemmatization.
+createDataset function samples 1000 toxic and positive comments by random. After that, it does word removal -> stopword cleaning -> stemming -> lemmatization.
 
-You can write the toxic and pure tweets number by percDistribution() function.
+You can write the toxic and positive tweets number by percDistribution() function.
 
 ## Future Representation
 
